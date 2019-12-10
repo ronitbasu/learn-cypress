@@ -74,7 +74,6 @@ const addScheduleTimes = schedule => ({
 const App = () => {
   const [schedule, setSchedule] = useState({ title: '', courses: [] });
   const [user, setUser] = useState(null);
-  const url = 'https://courses.cs.northwestern.edu/394/data/cs-courses.php';
 
   useEffect(() => {
     const handleData = snap => {

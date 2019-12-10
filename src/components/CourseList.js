@@ -1,7 +1,7 @@
 import 'rbx/index.css';
 import { Button } from "rbx";
 import React, { useState } from 'react';
-import Course, { terms , buttonColor , getCourseTerm } from './Course/Course';
+import Course, {  getCourseTerm } from './Course/Course';
 
 const useSelection = () => {
   const [selected, setSelected] = useState([]);
@@ -13,6 +13,7 @@ const useSelection = () => {
 
 const CourseList = ({ courses, user }) => {
   const [term, setTerm] = useState('Fall');
+  console.log(setTerm);
   const [selected, toggle] = useSelection();
   const termCourses = courses.filter(course => term === getCourseTerm(course));
 
@@ -27,20 +28,5 @@ const CourseList = ({ courses, user }) => {
     </React.Fragment>
   );
 };
-
-const TermSelector = ({ state }) => (
-  <Button.Group hasAddons>
-  { Object.values(terms)
-      .map(value =>
-        <Button key={value}
-          color={ buttonColor(value === state.term) }
-          onClick={ () => state.setTerm(value) }
-          >
-          { value }
-        </Button>
-      )
-  }
-  </Button.Group>
-);
 
 export default CourseList;
