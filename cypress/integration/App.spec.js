@@ -5,12 +5,12 @@ describe ('Test App', () => {
   });
 
   it ('opens with Fall CS courses', () => {
-    cy.visit ('/');cy.get('[data-cy=course]').should('contain', 'Fall CS');
+    cy.visit ('/');cy.get('[data-cy=Networking]').should('contain', 'Networking');
   });
 
-  it('shows Winter courses when Winter is selected', () => {
-    cy.visit ('/');
-    cy.get('[data-cy=Winter]').click();
-    cy.get('[data-cy=course]').should('contain' ,'Winter');
-  });
+  it('Disables the AI course when ML is selected as they are at the same time', () => {
+        cy.visit ('/');
+        cy.get('[data-cy=Networking]').click();
+        cy.get('[data-cy=ML]').should('be.disabled');
+      });
 });

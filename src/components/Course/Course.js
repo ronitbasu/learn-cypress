@@ -6,6 +6,7 @@ import { db } from '../../App'
 
 const Course = ({ course, state, user }) => (
   <Button color={ buttonColor(state.selected.includes(course)) }
+    data-cy={ course.title }
     onClick={ () => state.toggle(course) }
     onDoubleClick={ user ? () => moveCourse(course) : null }
     disabled={ hasConflict(course, state.selected) }
